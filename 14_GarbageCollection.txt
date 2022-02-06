@@ -1,8 +1,0 @@
-a = "python"
-words = ["INIAD", "is", "Wonderful"]
-a = words[2]
-words[1] = "Toyo"
-words[2] = "Enryo"
-
-[Garbage Collection]
-"python", "is"
