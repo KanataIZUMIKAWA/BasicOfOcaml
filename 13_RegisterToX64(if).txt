@@ -1,0 +1,27 @@
+[Register]
+
+int abs(int %edi){
+    int %ecx = 0;
+    if (%edi >= %ecx) {
+        %eax = %edi;
+    } else {
+        int %eax = -1;
+        %eax = %eax * %edi;
+    }
+    return %eax;
+}
+
+[Assembly]
+abs :
+    mov $0, %ecx
+    cmp %edi, %ecx
+    jl .L2
+    mov %edi, %eax
+    jmp .L1
+
+.L2
+    mov $-1, %eax
+    imul %edi, %eax
+
+.L1
+    ret

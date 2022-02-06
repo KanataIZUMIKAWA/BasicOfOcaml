@@ -1,0 +1,32 @@
+1)
+[Register]
+%eax = 1;
+%ebx = 2;
+%ecx = 3;
+%edx = %eax + %ebx;
+%eax = %edx + %ecx;
+
+[Assembly]
+mov $1, %eax
+mov $2, %ebx
+mov $3, %ecx
+mov %eax, %edx
+add %ebx, %edx
+mov %edx, %eax
+add %ecx, %eax
+
+2)
+[Register]
+%eax = 1;
+%ebx = 2;
+%ecx = 3;
+%eax = %eax + %ebx;
+%eax = %eax + %ecx;
+
+[Assembly]
+mov $1, %eax
+mov $2, %ebx
+mov $3, %ecx
+mov %eax, %edx
+add %ebx, %eax
+add %ecx, %eax

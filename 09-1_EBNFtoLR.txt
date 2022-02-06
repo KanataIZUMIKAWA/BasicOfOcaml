@@ -1,0 +1,15 @@
+# EBNF
+expr ::= expr + expr
+        |expr * expr
+        |INT n
+
+# LR
+Shift INT 3
+Reduce INT 3 -> expr
+Shift +
+Shift INT 5
+Reduce INT 5 -> expr
+Shift INT 8
+Reduce INT 8 -> expr
+Reduce expr * expr -> expr
+Reduce expr + expr -> expr

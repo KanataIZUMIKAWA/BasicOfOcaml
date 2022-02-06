@@ -1,0 +1,21 @@
+[program]
+
+int bar(int x){
+    int y = 0;
+    while(x > 0){
+        y += x;
+        x--;
+    }
+    return y;
+}
+
+[SSA]
+※変数の宣言は略している
+int bar(int x0){
+    int y0 = 0;
+    while(x2 = phi(x1, x0), y2 = phi(y1, y0), x2 > 0){
+        y1 = y2 + x2;
+        x1 = x2 - 1;
+    }
+    return y2;
+}

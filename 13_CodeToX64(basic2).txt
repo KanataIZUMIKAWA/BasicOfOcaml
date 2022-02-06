@@ -1,0 +1,45 @@
+[Code]
+int ihypot(int a, int b){
+    int c = a * a + b * b;
+    c = sqrt(c);
+    return c;
+}
+
+[K]
+int ihypot(int a, int b){
+    int tmp0, tmp1, tmp2, tmp3, tmp4;
+    
+    int tmp0 = a * a;
+    int tmp1 = b * b;
+    int c = tmp0 + tmp1;
+    c = sqrt(c);
+    return c;
+}
+
+[SSA]
+int ihypot(int a, int b){
+    int tmp0, tmp1, tmp2, tmp3, tmp4;
+    
+    int tmp0 = a * a;
+    int tmp1 = b * b;
+    int c0 = tmp0 + tmp1;
+    int c1 = sqrt(c0);
+    return c1;
+}
+
+[Register]
+int ihypot(int %edi, int %esi){
+    int %edi = %edi * %edi;
+    int %esi = %esi * %esi;
+    int %edi = %edi + %esi;
+    %eax = sqrt(%edi);
+    return %eax;
+}
+
+[Assembly]
+ihypot :
+    imul %edi, %edi
+    imul %esi, %esi
+    add %esi, %edi
+    call sqrt
+    ret
